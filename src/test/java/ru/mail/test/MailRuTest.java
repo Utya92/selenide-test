@@ -20,6 +20,7 @@ public class MailRuTest {
     public void testMailRuLoginTest() {
         Configuration.browser = "chrome";
         Configuration.timeout = 10000;
+        Configuration configuration = new Configuration();
 
 
         WebDriverManager.chromedriver().setup();
@@ -27,7 +28,7 @@ public class MailRuTest {
         open("https://mail.ru/");
         $("#ph-whiteline > div > div.ph-auth.svelte-1hiqrvn > button")
                 .click();
-        By xpath = By.xpath("body > div.ag_js-popup-frame.ag-popup__frame.ag-popup__frame_onoverlay.ag-popup__frame_show > div > iframe");
+        ;
         switchTo().frame($("body > div.ag_js-popup-frame.ag-popup__frame.ag-popup__frame_onoverlay.ag-popup__frame_show > div > iframe"));
 
         SelenideElement inputLoginLine = $("#root > div > div > div > div.wrapper-0-2-5 > div > div > form > div:nth-child(2) > div:nth-child(2) > div.login-row.username > div > div > div > div > div > div.base-0-2-58.first-0-2-64 > div > input");
@@ -35,7 +36,7 @@ public class MailRuTest {
         inputLoginLine.sendKeys("selenide92");
         inputLoginLine.pressEnter();
         SelenideElement inputPasswordLine = $x("//*[@id='root']/div/div/div/div[2]/div/div/form/div[2]/div/div[2]/div/div/div/div/div/input");
-        inputPasswordLine.setValue("Y3joOey(rKR2").pressEnter();  
+        inputPasswordLine.setValue("Y3joOey(rKR2").pressEnter();
 
         SelenideElement mailCounterImage = $x("//*[@id='ph-whiteline']/div/div[1]/a[2]");
         mailCounterImage.should(visible);
